@@ -1,0 +1,1587 @@
+﻿Python Notes
+
+VIDEO 6
+To run code in terminal
+print('hello world') 
+– save file as python so it knows it is python
+To run code: py helloworld.py
+name = input ('what is your name')
+print (name)
+re-run code py helloworld.py
+
+print('hello')
+print('world')
+cls- clears entire screen
+print('hello \nworld')   in this instance \ is a new line
+
+To find error within code: 
+print ('adding numbers')
+print ('dividing numbers')
+-use print code to debug the script
+
+
+VIDEO 7
+COMMENTS
+Using comments by adding a # at the beginning of a line
+Add comments when things are fresh in your mind
+
+
+VIDEO 8
+Comments inside of code
+Using commenting to debug
+
+
+VIDEO 9
+Working with strings - String Code
+first_name = 'Christopher'
+print (first_name)
+
+first_name = 'Christopher' 
+last_name= 'Harrison' 
+print (first_name + last_name)
+print('hello' + first_name + ' ' + last_name)
+
+sentence = 'The dog is name Sunny'
+print(sentence.upper())
+print(sentence.lower())
+print(sentence.capitalize())
+print(sentence.count('a'))
+
+first_name = input('What is your first name?')
+last_name = input('What is your last name?')
+print('Hello ' + first_name.capitalize() + ' ' + last_name.capitalize())
+
+
+VIDEO 10
+first_name = 'Christopher' 
+last_name= 'Harrison'
+print (first_name + last_name)
+ChristopherHarrsison
+
+#no spaces between names
+
+print ('hello, ' + first_name + ' ' + last_name)
+hello, Christopher Harrsison
+
+#this will have spaces between first and last name
+
+first_name = input('Please enter your first name: ')
+last_name = input('Please enter your last name: ')
+print('Hello, ' + first_name + ' ' + last_name)
+
+first_name = input('Please enter your first name: ')
+last_name = input('Please enter your last name: ')
+print('Hello, ' + first_name.capitalize() + ' ' + last_name.capitalize())
+
+
+VIDEO 11
+Custom string formatting
+
+#  {}{} - these are placeholders in order of parameters (ie. first name, last name)
+# Can also use {0}{1} for counting (ie. 0 is first item and 1 is second)
+
+output = 'Hello, ' + first_name + ' ' last_name
+output = 'Hello, {} {} ' .format(first_name, last_name)
+output = 'Hello, {0} {1} ' .format(first_name, last_name)
+#only available in python 3
+
+output = f'Hello, {first_name} {last_name}'
+# f stands for format, this will work
+
+
+VIDEO 12
+first_name = 'Christopher' 
+last_name= 'Harrison'
+output = 'Hello {} {}' .format(first_name, last_name)
+print(output)
+
+output = 'Hello {0} {1}' .format(first_name, last_name)
+print(output)
+#exact same output
+
+output = 'Hello {1} , {o}' .format(first_name, last_name)
+print(output)
+# Hello Harrison, Christopher
+
+output = f'Hello, {first_name} {last_name}'
+print(output)
+#back to the original
+
+
+Video 13 - Numeric Data Types
+pi = 3.14
+print (pi)
+
+first_num = 6
+second_num = 2
+print(first_num + second_num)
+print(first_num * second_num)
+
+#type conversion!  str is string
+daysinFeb = 28
+print(str(daysinFeb) + 'days in Feb')
+#this converts from number to string
+
+first_num = '6'
+second_num = '2'
+print(first_num + second_num)
+
+56 - because there are ''.  This is read as a string.  Int is interger and float can be a number with decimals
+
+#convert from string to number
+print(int(first_num) + int(second_num))
+print(float(first_num) + float(second_num))
+
+
+Video 14 - Numbers in code
+pi = 3.14
+print(pi)
+
+first_num =5
+sec_num = 6
+print(first_num + sec_num)
+
+first_num = input('Please enter a number')
+sec_num = input('Please enter a number')
+print(first_num + sec_num)
+#56
+
+print(int(first_num + int(sec_num))
+#11
+
+daysinFeb = 28
+print(str(daysinFeb) + 'total days in Feb')
+
+
+Video 15 -Date data types
+
+current_date = datetime.now()
+print('Today is : ' str(current_date))
+
+from datatime import datetime, timedelta
+today = datetime.now()
+print('Today is: ' + str(today))
+
+one_day = timedelta(days=1)
+yesterday = today - one_day
+print('Yesterday was: ' + str(yesterday))
+
+#portions of a date
+current_date = datetime.now()
+print('Day: ' + str(current_date.day))
+print('Month: ' + str(current_date.day))
+print('Year: ' + str(current_date.day))
+
+birthday = datetime.strptime(birthday, '%d/%m/%Y')
+#this will be the format
+
+
+
+Video 17
+
+Error Handling
+
+
+#error handling- problem with code that cannot be predicted in production.  ie. permission issue or server being down
+
+#debugging- problem with code, something done incorrectly
+
+
+#error types: syntax error, runtime error and logic error
+
+
+#syntax error: the code won't run at all.  Typically points to the line where error occurred
+
+#runtime error: divide by 0.  Typically points to the line where error occurred.  Problem is somewhere in the code
+
+#logic error: Code won't run at all.  No error message either.  Perform a unit test to detect
+ 
+
+Video 18
+
+Error handling 2
+
+Try expect finally
+
+x = 42
+
+y = 0
+
+print (x/y)
+
+#now
+
+x = 42
+
+y = 0
+
+try:
+
+   print (x/y)
+
+expect ZeroDivisionError as e:
+
+   print ('Not allowed to divide by zero')
+
+else:
+
+   print ('Something else went wrong')
+
+finally:
+
+   print('This is our cleanup code')
+
+print()
+
+
+
+Video 19
+
+Conditional logic
+
+price = input ('What is the price')
+
+price = float(price)
+
+if price >= 1.00:
+
+    tax = .07
+
+    print(tax)
+ 
+
+#always a : at the end of indentation
+
+
+if price >= 1.00:
+
+    tax = .07
+
+    print(tax)
+
+else:
+
+    tax = 0
+
+    print(tax)
+
+
+#can also do it this way
+
+if price >= 1.00:
+
+   tax = .07
+
+else:
+
+   tax = 0
+
+  print(tax)
+
+
+country = 'CANADA'
+
+if country == 'canada':
+
+   print('oh look a Canadian')
+
+else:
+
+   print('You are not from Canada')
+
+#this is not string sensenative, it should be
+
+country = 'CANADA'
+
+if country.lower() == 'canada':
+
+   print('oh look a Canadian')
+
+else:
+
+   print('You are not from Canada')
+
+
+ 
+
+Video 20
+
+Conditional logic
+ 
+
+#indents are only run with if statement.  In the case of no indents, the synatax is run everytime
+
+price = input('how much did you pay?')
+
+price = float(price)
+
+if price >= 1.00:
+
+   tax = .07
+
+   print('Tax rate is: ' + str(tax))
+
+
+price = input('how much did you pay?')
+
+price = float(price)
+
+if price >= 1.00:
+
+   tax = .07
+
+   print('Tax rate is: ' + str(tax))
+
+else:
+
+   tax = 0
+
+   print('Tax rate is: ' + str(tax))
+
+
+if price >= 1.00:
+
+   tax = .07
+
+else:
+
+   tax = 0
+
+print('Tax rate is: ' + str(tax))
+
+ 
+
+Video 21
+
+Multiple Conditions
+
+
+if province == 'Alberta':
+
+   tax = 0.05
+
+if province == 'Nunavut':
+
+   tax = 0.05
+
+if province == 'Ontario':
+
+   tax = 0.13
+
+
+#a better way is the following.  One province or the other
+
+
+if province == 'Alberta':
+
+   tax = 0.05
+
+elif province == 'Nunavut':
+
+   tax = 0.05
+
+elif province == 'Ontario':
+
+   tax = 0.13
+
+else:
+
+   tax = .15
+
+
+#can also do it this way
+
+if province == 'Alberta' \
+
+   or province =='Nunavut':
+
+   tax = 0.05
+
+elif province == 'Ontario':
+
+   tax = 0.13
+
+else:
+
+   tax = .15
+
+
+#in operator
+
+#can also do it this way
+
+if province in ('Alberta', \
+
+   'Nunavut','Yukon'):
+
+   tax = 0.05
+
+elif province == 'Ontario':
+
+   tax = 0.13
+
+else:
+
+   tax = .15
+
+#live in Canada but are visiting.  Nesting of statements
+
+if country == 'Canada':
+
+   if province in ('Alberta', \
+
+   'Nunavut','Yukon'):
+
+   tax = 0.05
+
+elif province == 'Ontario':
+
+   tax = 0.13
+
+else:
+
+   tax = .15
+
+else:
+
+   tax = 0
+
+ 
+
+Video 22
+
+Multiple Conditions
+
+province = input("What province do you live in?")
+
+tax = 0
+
+ 
+
+if province == 'Alberta':
+
+   tax = 0.05
+
+elif province == 'Nunavut':
+
+   tax = 0.05
+
+elif province == 'Ontario':
+
+   tax = 0.13
+
+print (tax)
+
+ 
+
+#what about other provinces?
+
+ 
+
+if province == 'Alberta':
+
+   tax = 0.05
+
+elif province == 'Nunavut':
+
+   tax = 0.05
+
+elif province == 'Ontario':
+
+   tax = 0.13
+
+else:
+
+   tax = 0.15
+
+print (tax)
+
+ 
+
+ 
+
+if province == 'Alberta' OR province == 'Nunavut':
+
+   tax = 0.05
+
+elif province == 'Ontario':
+
+   tax = 0.13
+
+else:
+
+   tax = 0.15
+
+print (tax)
+
+ 
+
+ 
+
+if province in ('Alberta', 'Nunavut', 'Yukon'):
+
+   tax = 0.05
+
+elif province == 'Ontario':
+
+   tax = 0.13
+
+else:
+
+   tax = 0.15
+
+print (tax)
+
+ 
+
+ 
+
+#nested if statement
+
+ 
+
+country = input ("What country do you live in?")
+
+   if country.lower() == 'canada':
+
+      province in ('Alberta', \
+
+     'Nunavut', 'Yukon'):
+
+     tax = .05
+
+   elif province == 'Ontario':
+
+   tax = 0.13
+
+else:
+
+   tax = 0
+
+print (tax)
+
+ 
+
+ 
+
+ 
+
+Video 23
+
+Complex Conditions
+
+#combine conditions with an AND instead of nesting
+
+#nesting example
+
+ 
+
+if gpa >= .85:
+
+   if lowest_grade >= .7:
+
+   print ('well done')
+
+ 
+
+ 
+
+if gpa >= .85 and lowest_grade >= .7:
+
+   print ('well done')
+
+ 
+
+ 
+
+if gpa >= .85 and lowest_grade >= .7:
+
+   honour_roll = True
+
+else:
+
+   honour_roll = False
+
+if honour_roll:
+
+   print('Well Done')
+
+ 
+
+ 
+
+ 
+
+Video 24
+
+Complex Condition Checks
+
+#float converts string into a number. Input brings back a string
+
+ 
+
+ 
+
+gpa = float(input('What was your gpa?'))
+
+lowest_grade = float(input('What was your lowest grade?'))
+
+ 
+
+if gpa >= .85:
+
+   if lowest_grade >= .7:
+
+   print ('well done')
+
+ 
+
+if gpa >= .85 and lowest_grade >= .7:
+
+   honour_roll = True
+
+else:
+
+   honour_roll = False
+
+if honour_roll:
+
+   print('You made the honour roll')
+
+ 
+
+ 
+
+ 
+
+Video 25
+
+Collections
+
+#group of items into a single column or group.  Lists, arrays and dictionaries
+
+ 
+
+#list (stores any type)
+
+names = ['Chris', 'Susan']
+
+print(names)
+
+ 
+
+#start with an empty list.  Add items using append
+
+scores = []
+
+scores.append(98) #adds new item to the end
+
+scores.append(99)
+
+print(scores)
+
+print(scores[1]) #Collections are zero indexed.  Access individuals items.  [1] is the second value.  0 indexed
+
+ 
+
+#array (all items are the exact same type)
+
+scores = array('d')    #d is digits.  Find all possible inputs for an array
+
+scores.append(98)
+
+scores.append(99)
+
+print(scores)
+
+print(scores[1]
+
+ 
+
+names = ['Chris', 'Susan']
+
+print(len(names))  #finds the number of items
+
+names.insert(0, 'Bill')  #insert before index.  0 index in this instance will put it in the beginning
+
+print(names)
+
+names.sort()   #alphabetical order
+
+print(names)
+
+ 
+
+names = ['Chris', 'Susan', 'Bill']
+
+presenters = names[0:2]    #gets the first two items.  0 is the start index and 2 is the number to grab
+
+ 
+
+#dictionary.  Gives you a set of key value pairs
+
+person = {'first': 'Chris'}
+
+person['last'] = 'Harrison'
+
+print(person)
+
+print(person['first'])
+
+ 
+
+ 
+
+Video 26
+
+Collections
+
+#how to create a dictionary
+
+ 
+
+person = {}
+
+person('first') = 'Chris'
+
+person('last') = 'Harrison'
+
+ 
+
+susan = {'first': 'Susan', 'last': 'Ibach':}
+
+ 
+
+print(chris)
+
+print(susan)
+
+ 
+
+people = {chris, susan}
+
+print(people)
+
+people.append({'first':'Bill', 'last':'Gates'})
+
+presenters = people[0:2]
+
+print()
+
+
+Video 27
+
+Loops
+
+ 
+
+#really only two loops.  "For" and "while"
+
+ 
+
+for name in ['Chris', 'Susan']:
+
+   print(name)
+
+ 
+
+#first time through name will be Chris and second time it will be Susan.
+
+ 
+
+#range will automatically create a list of numbers
+
+ 
+
+for index in range (0,2):
+
+   print(index)
+
+ 
+
+names = ['Chris', 'Susan']
+
+index = 0
+
+while index < len(names):
+
+   print (names[index])
+
+#change the condition
+
+   index = index + 1
+
+ 
+
+#with while loop you have to change condition.  At some point you need a false or else it will continue.  Add 1 to index
+
+ 
+
+ 
+
+Video 28
+
+Loops, for and while
+
+ 
+
+people = ['Chris', 'Susan']
+
+for name in people:
+
+   print (name)
+
+ 
+
+#while loop
+
+ 
+
+index = 0
+
+while index < len(people):
+
+   print(people(index))
+
+   index = index + 1
+
+ 
+
+#for and while loop do the exact same thing
+
+ 
+
+ 
+
+Video 29
+
+Functions
+
+ 
+
+ 
+
+#create a function called print_time
+
+ 
+
+def print_time():
+
+   print('task completed')
+
+   print(datetime.datetime.now())
+
+   print()
+
+ 
+
+first_name = 'Susan'
+
+print_time()
+
+ 
+
+for x in range(0,10):
+
+   print(x)
+
+print_time()
+
+ 
+
+#if you want a different message displayed
+
+first_name = 'Susan'
+
+print('first name assigned')
+
+print(datetime.now())
+
+print()
+
+ 
+
+for x in range(0,10):
+
+   print(x)
+
+print('loop completed')
+
+print(datetime.now())
+
+print()
+
+ 
+
+ 
+
+#can also add parameters
+
+ 
+
+def print_time(task_name):
+
+   print(task_name)
+
+   print(datetime.datetime.now())
+
+   print()
+
+ 
+
+first_name = 'Susan'
+
+print_time('first name assigned')
+
+ 
+
+for x in range(0,10):
+
+   print(x)
+
+print('loop completed')
+
+ 
+
+ 
+
+first_name = input('Enter your first name:')
+
+first_initial = first_name[0:1]
+
+last_name = input('Enter your last name:')
+
+last_initial = last_name[0:1]
+
+ 
+
+print('Your initials are: ' + first_initial \
+
+   + last_initial)
+
+ 
+
+ 
+
+#add a return statement to function
+
+ 
+
+def get_initial(name):
+
+   initial = name[0:1].upper()
+
+   return initial
+
+ 
+
+first_name = input('Enter your first name:')
+
+first_name_initial = get_initial(first_name)
+
+ 
+
+last_name = input('Enter your last name:')
+
+last_name_initial = get_initial(last_name)
+
+ 
+
+print('Your initials are: ' + first_initial \
+
+   + last_initial)
+
+ 
+
+ 
+
+ 
+
+Video 20
+
+Functions Code
+
+ 
+
+#function to print current date and time
+
+def print_time():
+
+   print('task completed')
+
+   print(datetime.datetime.now())
+
+   print()
+
+ 
+
+first_name = 'Susan'
+
+print_time()
+
+ 
+
+for x in range (0,10):
+
+   print(x)
+
+print_time()
+
+ 
+
+ 
+
+#display custom message
+
+def print_time(task_name):
+
+   print(task_name)
+
+   print(datetime.now())
+
+   print()
+
+ 
+
+for x in range (0,10):
+
+   print(x)
+
+print_time('completed for loop')
+
+ 
+
+def get_initial(name):
+
+   initial = name[0:1]
+
+   return initial
+
+ 
+
+ 
+
+Video 31
+
+Function Parameters
+
+ 
+
+#emails are lower case and initials should be lower case
+
+ 
+
+def get_initial(name, force_uppercase):
+
+   if force_uppercase:
+
+      initial = name[0:1].upper()
+
+   else:
+
+      initial = name[0:1]
+
+   return initial
+
+ 
+
+first_name = input('Enter your first name:')
+
+first_name_initial = get_initial(first_name, false)
+
+ 
+
+print('Your initial is: ' + first_name_initial)
+
+ 
+
+ 
+
+#you can do a named notation when passing parameters
+
+ 
+
+def get_initial(name, force_uppercase):
+
+   if force_uppercase:
+
+      initial = name[0:1].upper()
+
+   else:
+
+      initial = name[0:1]
+
+   return initial
+
+ 
+
+first_name = input('Enter your first name:')
+
+first_name_initial = get_initial(force_uppercase=True, \
+
+                                 name=first_name)
+
+ 
+
+print('Your initial is: ' + first_name_initial)
+
+ 
+
+ 
+
+ 
+
+Video 32
+
+Function parameters
+
+ 
+
+def get_initial(name, force_uppercase=True):
+
+   if force_uppercase:
+
+      initial = name[0:1].upper()
+
+else:     
+
+   initial = name[0:1]
+
+return initial
+
+ 
+
+first_name = input('Enter your first name:')
+
+first_name_initial = get_initial(force_uppercase = false, name = first_name)
+
+ 
+
+print('Your initial is: ' + first_name_initial)
+
+ 
+
+ 
+
+ 
+
+Video 33
+
+Modules and Packages
+
+ 
+
+#module is a python file with functions, classes and other components
+
+ 
+
+create a module
+
+#helpers.py
+
+def display(message, is_warning=False):
+
+   if is_warning:
+
+      print('Warning')
+
+   print(message)
+
+ 
+
+#import a module
+
+import helpers
+
+helpers.display('Not a warning')
+
+ 
+
+#import all into current workspace
+
+from helpers import *
+
+display('Not a warning')
+
+ 
+
+#import specific items into namespace
+
+from helpers import display
+
+display('Not a warning')
+
+ 
+
+#full index of python packages available called python package index
+
+ 
+
+#install an individual package
+
+pip install colorama
+
+ 
+
+#install a list of packages
+
+pip install -r requirements.txt
+
+ 
+
+ 
+
+ 
+
+Video 34
+
+Virtual Environment
+
+ 
+
+#when installing a list of packages, it is done globally. 
+
+#do a local install in a virtual environment
+
+ 
+
+pip install virtualenv
+
+ 
+
+#windows
+
+python -m venv <folder_name>
+
+ 
+
+#osx/linux (bash)
+
+virtualenv <folder_name>
+
+ 
+
+#need to activate environment
+
+ 
+
+#windows
+
+<folder_name>\Scripts\Activate.bat
+
+ 
+
+#OSX/Linux
+
+<folder_name>/bin/activate
+
+ 
+
+#installing individual package
+
+pip install colorama
+
+ 
+
+#install a list of packages
+
+pip install -r requirements.txt
+
+ 
+
+ 
+
+Video 35
+
+Packages
+
+ 
+
+def display(message, is_warning=False):
+
+   if is_warning:
+
+      print('This is a warning')
+
+   print(message)
+
+ 
+
+import helpers
+
+helpers.display('Sample message', True)
+
+ 
+
+from helpers import display
+
+display('Sample message')
+
+ 
+
+#setup virtual environment
+
+python -m venv venv
+
+ 
+
+#second venv is the folder name
+
+ 
+
+#local environment
+
+.\venv\Scripts\activate.ps1
+
+ 
+
+pip install colorama
+
+ 
+
+#create a txt file called requirments
+
+requirements.txt
+
+ 
+
+pip install -r requirements.txt
+
+ 
+
+ 
+
+from pip._vendor.colorama import init, Fore
+
+def display(message, is_warning=False):
+
+   if is_warning:
+
+      print(Fore.RED + message)
+
+   else:
+
+      print(Fore.BLUE + message)
+
+ 
+
+py.exe .\demos.py
+
+ 
+
+ 
+
+ 
+
+Video 36
+
+Calling an API
+
+#when a developer wants to share a functionality but not the actual code
+
+#have to know the function name and parameters
+
+ 
+
+#keys are used to track which users have permission.  Key is unique to each person
+
+#standard for sending messages across the web. 
+
+#HTTP- Get or Post
+
+#Get passes values in query string.  Limited data and no special characters
+
+#Post passes in query string and body
+
+ 
+
+request.post(address,
+
+             http_headers,
+
+             function_parameters,
+
+             message_body)
+
+ 
+
+ 
+
+ 
+
+Video 37
+
+Calling an API
+
+#create a service account in azure
+
+#search for computer vision in azure
+
+ 
+
+subsrciption_key =
+
+address=
+
+headers = {'content-type': 'application/octet-stream',
+
+           'ocp-Apim-Subscription-key': SUBSCRIPTION_KEY}
+
+ 
+
+ 
+
+Video 38
+
+JSON
+
+ 
+
+#standard data format used that is passed back and forth
+
+#use a linting tool to format JSON to make it easier to read
+
+ 
+
+#import json
+
+print(json.dumps(results)
+
+ 
+
+results = response.json()
+
+response = requests.post(address, headers=headers, params=parameters, data=image_data)
+
+ 
+
+#convert dictionary to JSON object
+
+person_json = json.dumps(person_dict)
+
+print(person_json)
+
+ 
+
+ 
+
+ 
+
+Video 39
+
+JSON Code
+
+ 
+
+#import json
+
+print(json.dumps(results)
+
+print('requestID')
+
+print (results['requestId'])
+
+ 
+
+#video shows how to create json from dictionary
+
+ 
+
+ 
+
+ 
+
+Video 40
+
+Managing Keys
+
+#never share keys with anyone or make them publicly available
+
+ 
+
+#reading an environmental variable
+
+import os
+
+os_version = os.getenv('OS')
+
+print(os_version)
+
+ 
+
+#store environmental variable into a text file
+
+database = Sample_Connection_String
+
+ 
+
+#app.py
+
+from dotenv import load_dotenv
+
+import os
+
+load_dotenv()
+
+database = os.getenv('DATABASE')
+
+print(database)
+
+ 
+
+#never hard code sensative information ever!
+
+#use dotenv for a simple solution
+
+ 
+
+ 
+
+ 
+
+Video 41
+
+Managing Key Codes
+
+ 
+
+pip install -r .\requirements.txt
+
+ 
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+import os
+
+password = os.getenv('PASSWORD')
+
+print(password)
+
+ 
+
+ 
+
+Video 42
+
+Decorators
+
+ 
+
+#object: these are nouns, things that will be operated on.  Data constructs
+
+#functions: verbs and actions
+
+#decorators: adjectives, add additional meaning to code
+
+ 
+
+ 
+
+Video 43
+
+Decorators
+
+#additional code on decorators
+
