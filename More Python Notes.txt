@@ -1,0 +1,372 @@
+More Python Notes
+
+
+Video 2 and 3
+
+Formatting
+
+Formatting makes code readable and easier to debug.
+Documentation
+
+    PEP 8 is a set of coding conventions for Python code
+    Docstring is the standard for documenting a module, function, class or method definition
+
+Linting
+
+Linting helps you identify formatting and convention issues in your Python code
+
+    Pylint Pylint is a linter for Python to help enforce coding standards and check for errors in Python code
+    Linting Python in Visual Studio Code will show you how to enable litners in VS Code
+    Type hints allow some interactive development environments and linters to enforce types
+
+
+Video 4 and 5
+
+Lambdas
+
+A lambda function is a small anonymous function. It can take any number of arguments but can only execute one expression.
+
+# This code will return an error because the sort method does not know
+# which presenter field to use when sorting
+presenters = [
+    {'name': 'Susan', 'age': 50},
+    {'name': 'Christopher', 'age': 47}
+]
+
+presenters.sort()
+print(presenters)
+
+
+
+
+
+# Sort alphabetically
+presenters = [
+    {'name': 'Susan', 'age': 50},
+    {'name': 'Christopher', 'age': 47}
+]
+
+presenters.sort(key=lambda item: item['name'])
+print('-- alphabetically --')
+print(presenters)
+
+# Sort by length of name (shortest to longest)
+presenters.sort(key=lambda item: len(item['name']))
+print('-- length --')
+print(presenters)
+
+
+
+def sorter(item):
+    return item['name']
+
+
+presenters = [
+    {'name': 'Susan', 'age': 50},
+    {'name': 'Christopher', 'age': 47}
+]
+presenters.sort(key=sorter)
+print(presenters)
+
+
+Video 6 and 7
+
+#Classes
+#Classes define data structures and behavior. Classes allow you to group data and functionality together.
+
+class Presenter():
+	def __init__(self, name):
+		# Constructor
+		self.name = name
+	def say_hello(self):
+		# method
+		print('Hello, ' + self.name)
+
+presenter = Presenter('Chris')
+presenter.name = 'Christopher'
+presenter.say_hello()
+
+#call a constructor the same as a function
+
+
+class Presenter():
+	def __init__(self, name):
+		# Constructor
+		self.name = name
+
+	@property
+	def name(self):
+		print('Retrieving name...')
+		return self.__name
+	@name.setter
+	def name(self, value):
+		# cool validation here
+		print('Validating name...')
+		self.__name = value
+
+presenter = Presenter('Chris')
+presenter.name = 'Christopher'
+print(presenter.name)
+
+
+Video 8 and 9
+
+#Inheritance
+#Inheritance allows you to define a class that inherits all the methods and properties from another class. 
+#The parent or base class is the class being inherited from. The child or derived class is the class that inherits from another class.
+
+class Person:
+	def __init__(self, name):
+		self.name = name
+	def say_hello(self):
+		print('Hello, ' + self.name)
+
+class Student(Person):
+#person is in () because it is inheriting from above. Name comes from person constructor
+#super() calls the instructor
+
+	def __init__(self, name, school):
+		super().__init__(name)
+		self.school = school
+	def sing_school_song(self):
+		print('Ode to ' + self.school)
+
+student = Student('Christopher', 'UVM')
+student.say_hello()
+student.sing_school_song()
+# What are you?
+print(isinstance(student, Student))
+print(isinstance(student, Person))
+print(issubclass(Student, Person))
+
+{} - executes code inside here
+
+
+Video 10 and 11
+
+Mixins (multiple inheritance).  These are commonly used in frameworks such as Django.
+
+#CRUD - Create Retrieve Update Delete
+
+class Loggable:
+    def __init__(self):
+        self.title = ''
+    def log(self):
+        print('Log message from ' + self.title)
+
+class Connection:
+    def __init__(self):
+        self.server = ''
+    def connect(self):
+        print('Connecting to database on ' + self.server)
+
+class SqlDatabase(Connection, Loggable):
+    def __init__(self):
+        super().__init__()
+        self.title = 'Sql Connection Demo'
+        self.server = 'Some_Server'
+        
+
+def framework(item):
+    if isinstance(item, Connection):
+        item.connect()
+    if isinstance(item, Loggable):
+        item.log()
+
+sql_connection = SqlDatabase()
+framework(sql_connection)
+
+
+Video 12 and 13 - Managing the file system
+
+from pathlib import Path
+
+#What is the current working directory?
+cwd = Path.cwd()
+print(cwd)
+
+# Is this a directory?
+print('\nIs this a directory? ' + str(parent.is_dir()))
+
+#does exist
+print(new_file.exists())
+
+
+# Is this a file?
+print('\nIs this a file? ' + str(parent.is_file()))
+
+# List child directories
+print('\n-----directory contents-----')
+for child in parent.iterdir():
+    if child.is_dir():
+        print(child)
+
+demo_file = Path(Path.joinpath(cwd, 'demo.txt'))
+
+#before you use a file check the size, name, etc.  Make sure it is not a blank file
+
+# Get the file name
+print('\nfile name: ' + demo_file.name)
+
+# Get the extension
+print('\nfile suffix: ' + demo_file.suffix)
+
+# Get the folder
+print('\nfile folder: ' + demo_file.parent.name)
+
+# Get the size
+print('\nfile size: ' + str(demo_file.stat().st_size) + '\n')
+
+# Create full path name by joining path and filename
+new_file = Path.joinpath(cwd, 'new_file.txt')
+print('\nFull path:\n' + str(new_file))
+
+# Check if file exists
+print('\nDoes that file exist? ' + str(new_file.exists()) + '\n')
+
+
+
+Video 14 and 15 - Working with files
+
+stream= open(file_name, mode, buffer_size)
+Mode: 
+r- read
+w- truncate
+a append if file exists
+x- write, fail if exists
+
+# Open file demo.txt and read the contents
+stream = open('./demo.txt', 'rt')
+print(stream.readable()) #can we read
+print(stream.read(1)) #read first character
+print(stream.readline()) #read a line
+stream.close() #close the stream
+
+# Open manage.txt file to write text
+stream = open('manage.txt', 'wt')
+
+#Write the word demo to the file stream
+stream.write('demo!')
+
+# Move back to the start of the file stream
+stream.seek(0)
+
+#write the word cool to the file stream
+stream.write('cool')
+
+#Flush the file stream contents to the file buffer
+stream.flush()
+
+# Flush the file stream and close the file
+stream.close()
+
+#write to a file
+
+stream.open('output.txt, 'wt') #write text
+stream.write('H') #write a single string
+stream.writeline(['ello','','world']) #write multiple strings
+stream.write('/n') #write a new line
+name = ['Susan','Christopher'] #create a list of strings
+
+stream.close() #close a stream
+
+# Here's a neat trick to insert a new line between items in the list
+stream.open('output.txt, 'wt')
+stream.write('demo!') 
+stream.seek(0)
+stream.write('cool')
+stream.flush()
+
+
+Video 16 and 17 - Cleanup the data
+
+    stream.open('output.txt, 'wt')
+    stream.write('Lorem ipsum dolar')
+finally: 
+    stream.close() #this is really important to close because if it is already open there will be an error
+
+#Simply with with
+with open ('output.txt' , 'wt') as stream
+    stream.write('Lorem ipsum dolar')
+
+
+try:
+    stream = open('output.txt' , 'wt')
+    stream.write('Lorem ipsum dolar')
+finally:
+    stream.close() #this is really important
+
+#replace all of this code with the with command
+
+with open('output.txt' , 'wt') as stream:
+    stream.write('Lorem ipsum dolar')
+
+
+Video 18
+Asynchronous Operations
+#don't want to stop everything because 1 operation is taking a long time
+#concurrency and parellelism
+
+#async demo
+from timeit import default_timer
+import aiohttp
+import asyncio
+
+async def load_data(session, delay):
+    print(f'Starting {delay} second timer')
+    async with session.get(f'http://httpbin.org/delay/{delay}') as resp:
+        text = await resp.text()
+        print(f'Completed {delay} second timer')
+        return text
+
+async def main():
+    # Start the timer
+    start_time = default_timer()
+
+    # Creating a single session
+    async with aiohttp.ClientSession() as session:
+        # Setup our tasks and get them running
+        two_task = asyncio.create_task(load_data(session, 2))
+        three_task = asyncio.create_task(load_data(session, 3))
+
+        # Simulate other processing
+        await asyncio.sleep(1)
+        print('Doing other work')
+
+        # Let's go get our values
+        two_result = await two_task
+        three_result = await three_task
+
+        # Print our results
+        elapsed_time = default_timer() - start_time
+        print(f'The operation took {elapsed_time:.2} seconds')
+
+asyncio.run(main())
+
+
+#sync demo
+from timeit import default_timer
+import requests
+
+def load_data(delay):
+    print(f'Starting {delay} second timer')
+    text = requests.get(f'http://httpbin.org/delay/{delay}').text
+    print(f'Completed {delay} second timer')
+
+def run_demo():
+    start_time = default_timer()
+
+    two_data = load_data(2)
+    three_data = load_data(3)
+
+    elapsed_time = default_timer() - start_time
+    print(f'The operation took {elapsed_time:.2} seconds')
+
+def main():
+    run_demo()
+
+main()
+
+
+
+
